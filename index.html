@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph Visualization Tool</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <div class="title-container"><h2>IMDB Movies Graph</h2></div>
+
+  <div class="contains-all">
+    <div id="left-information-container">
+      <div id="largest-connected-div" class="display-boxes">
+        <h4>Largest Connected Component</h4>
+        <label class="switch">
+          <input type="checkbox" id="largest-connected-toggle" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div id="stats" class="display-boxes">
+        <h4>Graph Statistics</h4>
+        <p>Average Node Degree: <span class="graphDataClass" id="avgDegree"></span></p>
+        <p>Number of Connected Components: <span class="graphDataClass" id="numComponents"></span></p>
+        <p>Graph Density: <span class="graphDataClass" id="graphDensity"></span></p>
+        <p>Graph Diameter: <span class="graphDataClass" id="graphDiameter"></span></p>
+        <p>Average Shortest Path Length: <span class="graphDataClass" id="graphAPL"></span></p>
+      </div>
+      
+      <div id="search-bar" class="display-boxes">
+        <div class="dropdown">
+          <h4>Search by</h4>
+          <select id="select-info-type-search">
+            <option value="rank">Rank</option>
+            <option value="id">Movie ID</option>
+            <option value="name">Movie Name</option>
+            <option value="genre">Genre(s)</option>
+            <option value="cast_name">Cast Name(s)</option>
+            <option value="director_name">Director Name(s)</option>
+            <option value="writter_name">Writer Name(s)</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Press enter"
+            id="search-node"
+          />
+        </div>
+        
+      </div>
+      <div class="display-boxes">
+        <h3>Search/Label Mode</h3>
+        <select id="select-info-type">
+          <option value="id">Movie ID</option>
+          <option value="name">Movie Name</option>
+          <option value="genre">Genre(s)</option>
+          <option value="director_name">Director Name(s)</option>
+        </select>
+        <span id="node-name"> </span>
+      </div>
+      
+    </div>
+    <div id="graphviz"></div>
+    <div class="information-container">
+      <div id="add-node-container" class="display-boxes">
+        <span><h4>Enter node Id</h4></span>
+        <input type="text" id="add-node-input" />
+        <button id="add-node">Add Node</button>
+      </div>
+      
+    
+      <div class="display-boxes">
+        <h4>Movie Information</h4>
+        <p>Name: <span style="font-weight: bold;" id="movieName"></span></p>
+        <p>ID: <span style="font-weight: bold;" id="movieId"></span></p>
+        <p>Rank: <span style="font-weight: bold;" id="movieRank"></span></p>
+        <p>Year of Release: <span style="font-weight: bold;" id="movieYear"></span></p>
+        <p>IMDB Rating: <span style="font-weight: bold;" id="movieRating"></span></p>
+        <p>Total Duration: <span style="font-weight: bold;" id="totalDuration"></span></p>
+        <p>Genre(s): <span style="font-weight: bold;" id="genreName"></span></p>
+        <p>Director Name(s): <span style="font-weight: bold;" id="directorName"></span></p>
+        <img id="movie-poster"></img>
+      </div>
+    </div>
+    
+  </div>
+  <script type="module" src="index.js"></script>
+</html>
